@@ -46,7 +46,7 @@ async function updateFood(req, res) {
 async function deleteFood(req, res) {
     let food_id = parseInt(req.params.id);
     let deleteFood = await FoodTable.delete(food_id);
-    res.status(204).json('record deleted'); 
+    res.status(204).json(deleteFood); 
 }
 
 module.exports = FoodRouter;

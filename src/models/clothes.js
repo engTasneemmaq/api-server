@@ -1,7 +1,7 @@
 "use strict";
 
 const Clothes = (sequelize, DataTypes) =>
-    sequelize.define("clothes", {
+    sequelize.define("Clothes", {
         Clothes_type: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -10,11 +10,6 @@ const Clothes = (sequelize, DataTypes) =>
         Clothes_Price: {
             type: DataTypes.INTEGER 
         },
-        // food_id:{
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        // }
-       
     });
 
 module.exports = Clothes;
