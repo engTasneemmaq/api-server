@@ -9,12 +9,12 @@ const app = express();
 const notFoundHandler = require("./error-handlers/404");
 const errorHandler = require("./error-handlers/500");
 const foodRoutes = require("./ routes/foodRoutes");
-// const clothesRoutes = require("./ routes/clothesRoutes");
+const clothesRoutes = require("./ routes/clothesRoutes");
 
 // app.use
 app.use(express.json());
 app.use(foodRoutes);
-// app.use(clothesRoutes);
+app.use(clothesRoutes);
 
 app.use("*", notFoundHandler);
 app.use(errorHandler);

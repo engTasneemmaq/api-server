@@ -1,7 +1,9 @@
+
 "use strict";
 const express = require("express");
 
 const { ClothesTable } = require("../models/index");
+
 
 const ClothesRouter = express.Router();
 
@@ -44,7 +46,7 @@ async function updateClothes(req, res) {
 async function deleteClothes(req, res) {
     let clothes_id = parseInt(req.params.id);
     let deleteFood = await ClothesTable.delete(clothes_id);
-    res.status(204).json('record deleted'); 
+    res.status(204).json(deleteFood); 
 }
 
 
