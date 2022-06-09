@@ -14,41 +14,43 @@ ClothesRouter.put("/clothes/:id", updateClothes);
 ClothesRouter.delete("/clothes/:id", deleteClothes);
 
 async function getClothes(req, res) {
-    const clothes = await ClothesTable.read();
-    res.status(200).json(clothes);
+    const allClothes = await ClothesTable.read();
+    res.status(200).json(allClothes);
 }
 
 async function getOneClothes(req, res) {
-    const clothes_id = parseInt(req.params.id);
-    let clothes = await ClothesTable.read(clothes_id);
-    res.status(200).json(clothes);
+    const ClothesId = parseInt(req.params.id);
+    let Dress = await ClothesTable.read(ClothesId);
+    res.status(200).json(Dress);
 }
 
 async function createClothes(req, res) {
-    let newClothes = req.body;
-    let clothes = await ClothesTable.create(newClothes);
+    let newDress = req.body;
+    let clothes = await ClothesTable.create(newDress);
     res.status(201).json(clothes);
 }
 
 async function updateClothes(req, res) {
-    let clothes_id= parseInt(req.params.id);
-    let updateClothes = req.body;
-    let foundClothes = await ClothesTable.read(clothes_id);
+    
+    let ClothesId = parseInt(req.params.id);
+    let updateClothes = req.body; 
+    
+    let foundClothes = await ClothesTable.read(ClothesId);
     if (foundClothes) {
 
-        let updatedClothes= await foundClothes.update(updateClothes);
+        let updatedClothes = await foundClothes.update(updateClothes);
         res.status(201).json(updatedClothes);
     } else {
+
         res.status(404);
     }
 }
-
 async function deleteClothes(req, res) {
-    let clothes_id = parseInt(req.params.id);
-    let deleteFood = await ClothesTable.delete(clothes_id);
-    res.status(204).json(deleteFood); 
+    
+    let ClothesId = parseInt(req.params.id);
+    let deleteClothes = await ClothesTable.delete(ClothesId);
+res.status(204).json(deleteClothes); 
 }
-
 
 
 module.exports = ClothesRouter;
