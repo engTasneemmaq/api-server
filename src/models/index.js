@@ -32,10 +32,10 @@ let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
 
 const foodTable = Food(sequelize, DataTypes);
-const clothesTable = Clothes(sequelize, DataTypes);
+const ClothesTable = Clothes(sequelize, DataTypes);
 
 const foodCollection = new Collection(foodTable);
-const clothesCollection = new Collection(clothesTable);
+const clothesCollection = new Collection(ClothesTable);
 
 
 // foodTable.hasMany(clothesTable, {
@@ -49,8 +49,8 @@ const clothesCollection = new Collection(clothesTable);
 // });
 module.exports = {
     db: sequelize,
-    // Food: Food(sequelize, DataTypes),
-    // Clothes: Clothes(sequelize, DataTypes)
+    Food: Food(sequelize, DataTypes),
+    Clothes: Clothes(sequelize, DataTypes),
     FoodTable: foodCollection,
-    ClothesTable: clothesCollection,
+    ClothesTable:clothesCollection, 
 };
